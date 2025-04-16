@@ -1,0 +1,14 @@
+# Ignore dependency folders
+node_modules/
+.yarn/
+
+# Ignore IDE and editor folders
+.vscode/
+.idea/
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore coverage reports
+coverage/
