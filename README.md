@@ -5,7 +5,7 @@ A secure, modular, and extensible **Node.js** backend built with **Express**, **
 
 💡 _Follows modern best practices, with structured logging and OAuth integrations._
 
-🔗 Frontend repository: [mern-auth-client](https://github.com/n1kFord/mern-auth-client)
+🔗 Frontend repository: [mern-auth-frontend](https://github.com/n1kFord/mern-auth-frontend)
 
 ---
 
