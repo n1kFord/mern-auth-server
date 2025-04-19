@@ -17,7 +17,25 @@ Supports a full authentication flow, including JWT and OAuth logins, user accoun
 
 ---
 
-## 🏁 Getting Started
+## 🌐 Live Demo
+
+You can try the full app here:  
+🔗 **[mern-auth-frontend-beta-two.vercel.app](https://mern-auth-frontend-beta-two.vercel.app)**
+
+> ⚠️ **Note:** When opening the app for the first time, the **backend server may take up to one minute to respond**, as it's hosted on a free-tier platform with cold start delays.
+
+---
+
+## 🌍 Live API
+
+You can access the deployed backend here:  
+🔗 **https://mern-auth-server-o28m.onrender.com**
+
+> Use this to test the frontend or API routes directly (e.g. via Postman or browser dev tools).
+
+---
+
+## 🏁 Getting Started Locally
 
 Clone the repository and install dependencies:
 
@@ -70,22 +88,22 @@ GITHUB_REDIRECT_URI=http://localhost:8080/api/auth/github/callback
 
 #### 🔐 Auth Routes
 
--   `POST /auth/register` – Register a new user
--   `POST /auth/login` – Log in with email and password
--   `GET /auth/logout` – Log out (clears the JWT cookie)
--   `GET /auth/me` – Get current authenticated user
--   `GET /auth/google` – Redirect to Google OAuth
--   `GET /auth/google/callback` – Handle Google OAuth callback
--   `GET /auth/github` – Redirect to GitHub OAuth
--   `GET /auth/github/callback` – Handle GitHub OAuth callback
+-   `POST /api/auth/register` – Register a new user
+-   `POST /api/auth/login` – Log in with email and password
+-   `GET /api/auth/logout` – Log out (clears the JWT cookie)
+-   `GET /api/auth/me` – Get current authenticated user
+-   `GET /api/auth/google` – Redirect to Google OAuth
+-   `GET /api/auth/google/callback` – Handle Google OAuth callback
+-   `GET /api/auth/github` – Redirect to GitHub OAuth
+-   `GET /api/auth/github/callback` – Handle GitHub OAuth callback
 
 #### 👤 User Routes
 
 _Requires authentication (JWT in HTTP-only cookie)_
 
--   `POST /user/change-username` – Change username
--   `POST /user/change-password` – Change password
--   `DELETE /user/delete-account` – Delete user account
+-   `POST /api/user/change-username` – Change username
+-   `POST /api/user/change-password` – Change password
+-   `DELETE /api/user/delete-account` – Delete user account
 
 #### 🔒 Authentication Details
 
