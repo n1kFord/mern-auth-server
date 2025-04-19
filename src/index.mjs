@@ -25,9 +25,10 @@ app.use(requestLogger);
 
 // --- CORS configuration ---
 const corsOptions = {
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URI || "http://localhost:3000",
     credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 // --- Rate limiting for security ---

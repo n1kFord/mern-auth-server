@@ -90,7 +90,9 @@ export const githubCallback = async (req, res) => {
         res.cookie("token", token, cookieOptions);
 
         logger.info(`User logged in via GitHub: ${primaryEmail}`);
-        res.redirect("http://localhost:3000/dashboard");
+        res.redirect(
+            `${process.env.CLIENT_URI || "http://localhost:3000"}/dashboard`,
+        );
     } catch (err) {
         logger.error(`GitHub Auth error: ${err.message}`);
         res.status(500).json({ msg: "GitHub authentication failed" });

@@ -37,6 +37,7 @@ Create a `.env` file in the root with the following:
 ```env
 PORT=8080
 MONGO_URI=your_mongo_connection_string
+CLIENT_URI=your_frontend_uri
 JWT_SECRET=your_jwt_secret
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
@@ -62,6 +63,67 @@ GITHUB_REDIRECT_URI=http://localhost:8080/api/auth/github/callback
 -   ♻️ Secure environment variable management with `dotenv`
 -   🧪 Full test coverage using Jest + Supertest for all critical flows
 -   💡 ES Modules (`.mjs`) with Babel support
+
+---
+
+## 📚 API Endpoints
+
+#### 🔐 Auth Routes
+
+-   `POST /auth/register` – Register a new user
+-   `POST /auth/login` – Log in with email and password
+-   `GET /auth/logout` – Log out (clears the JWT cookie)
+-   `GET /auth/me` – Get current authenticated user
+-   `GET /auth/google` – Redirect to Google OAuth
+-   `GET /auth/google/callback` – Handle Google OAuth callback
+-   `GET /auth/github` – Redirect to GitHub OAuth
+-   `GET /auth/github/callback` – Handle GitHub OAuth callback
+
+#### 👤 User Routes
+
+_Requires authentication (JWT in HTTP-only cookie)_
+
+-   `POST /user/change-username` – Change username
+-   `POST /user/change-password` – Change password
+-   `DELETE /user/delete-account` – Delete user account
+
+#### 🔒 Authentication Details
+
+This API uses **JWT-based authentication** with tokens stored in **HTTP-only cookies**.  
+To access protected routes, the client must include the JWT cookie in the request.
+
+Example middleware:
+
+```js
+import jwt from "jsonwebtoken";
+import logger from "../utils/logger.mjs";
+
+export const authenticateUser = (req, res, next) => {
+    const token = req.cookies.token;
+
+    if (!token) {
+        logger.warn(
+            \`No token provided for \${req.method} \${req.originalUrl} | IP: \${req.ip}\`,
+        );
+        return res.status(401).json({ msg: "No token, authorization denied" });
+    }
+
+    try {
+        const decoded = jwt.verify(
+            token,
+            process.env.JWT_SECRET || "my-secret",
+        );
+
+        req.userId = decoded.userId;
+        next();
+    } catch (error) {
+        logger.error(
+            \`Invalid token provided for \${req.method} \${req.originalUrl} | IP: \${req.ip} | Error: \${error.message}\`,
+        );
+        return res.status(401).json({ msg: "Token is not valid" });
+    }
+};
+```
 
 ---
 

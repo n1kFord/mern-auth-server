@@ -72,7 +72,9 @@ export const googleCallback = async (req, res) => {
         res.cookie("token", token, cookieOptions);
 
         logger.info(`User authenticated: ${email}`);
-        res.redirect("http://localhost:3000/dashboard");
+        res.redirect(
+            `${process.env.CLIENT_URI || "http://localhost:3000"}/dashboard`,
+        );
     } catch (err) {
         logger.error(`Google callback error: ${err.message}`);
         res.status(401).json({ msg: "Google authentication failed" });
