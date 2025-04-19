@@ -14,7 +14,9 @@ import {
 import { downloadAvatar } from "../utils/avatarUtils.mjs";
 
 const cookieOptions = {
-    sameSite: "strict",
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
     maxAge: 3600000, // 1 hour
 };
 
@@ -112,7 +114,11 @@ export const loginUser = [
 
 // Logout handler
 export const logOut = (req, res) => {
-    res.clearCookie("token", { sameSite: "strict" });
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+    });
     logger.info("User logged out successfully");
     return res.status(200).json({ msg: "Logged out successfully" });
 };

@@ -81,7 +81,11 @@ export const changePassword = [
             await user.save();
 
             logger.info(`Password changed successfully for user ID: ${userId}`);
-            res.clearCookie("token", { sameSite: "strict" });
+            res.clearCookie("token", {
+                httpOnly: true,
+                secure: true,
+                sameSite: "none",
+            });
             return res.status(200).json({
                 msg: "Password changed successfully! Please log in again.",
             });
@@ -122,7 +126,11 @@ export const deleteAccount = async (req, res) => {
         await user.deleteOne();
         logger.info(`Account deleted successfully for user ID: ${userId}`);
 
-        res.clearCookie("token", { sameSite: "strict" });
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+        });
         return res.status(200).json({
             msg: "Account deleted successfully!",
         });

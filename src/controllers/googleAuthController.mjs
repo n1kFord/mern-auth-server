@@ -13,8 +13,10 @@ const client = new OAuth2Client(
 );
 
 const cookieOptions = {
-    sameSite: "strict",
-    maxAge: 3600000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    maxAge: 3600000, // 1 hour
 };
 
 export const googleLogin = (req, res) => {

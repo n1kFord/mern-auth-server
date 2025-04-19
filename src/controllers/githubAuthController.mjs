@@ -7,8 +7,10 @@ import logger from "../utils/logger.mjs";
 dotenv.config();
 
 const cookieOptions = {
-    sameSite: "strict",
-    maxAge: 3600000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    maxAge: 3600000, // 1 hour
 };
 
 export const githubLogin = (req, res) => {
