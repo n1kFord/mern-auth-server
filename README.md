@@ -1,5 +1,7 @@
 # 🔐 MERN Auth Server
 
+![Server Tests](https://github.com/n1kFord/mern-auth-server/actions/workflows/test.yml/badge.svg)
+
 **Personal Fullstack Project — Backend**  
 A secure, modular, and extensible **Node.js** backend built with **Express**, **MongoDB**, and **JWT**, powering the authentication logic of a MERN-based fullstack application.
 
