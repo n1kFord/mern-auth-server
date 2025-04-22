@@ -7,7 +7,7 @@
     "scripts": {
         "start": "node src/index.mjs",
         "dev": "nodemon ./src/index.mjs",
-        "test": "truncate -s 0 logs/tests.log && NODE_ENV=test jest --forceExit --detectOpenHandles"
+        "test": "mkdir -p logs && touch logs/tests.log && truncate -s 0 logs/tests.log && NODE_ENV=test jest --forceExit --detectOpenHandles"
     },
     "repository": {
         "type": "git",
