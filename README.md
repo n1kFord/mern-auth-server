@@ -24,6 +24,12 @@ You can try the full app here:
 
 > ⚠️ **Note:** When opening the app for the first time, the **backend server may take up to one minute to respond**, as it's hosted on a free-tier platform with cold start delays.
 
+> ⚠️ **Safari Users:** Due to cross-site cookie restrictions in Safari, authentication may not work properly out of the box.  
+> Please either:
+>
+> -   Use **Chrome** or **Firefox** for the full experience
+> -   Or **enable third-party cookies** in Safari settings (Settings → Privacy → Uncheck _“Prevent cross-site tracking”_)
+
 ---
 
 ## 🌍 Live API
@@ -32,8 +38,6 @@ You can access the deployed backend here:
 🔗 **https://mern-auth-server-o28m.onrender.com**
 
 > Use this to test the frontend or API routes directly (e.g. via Postman or browser dev tools).
-
----
 
 ## 🏁 Getting Started Locally
 
@@ -192,7 +196,6 @@ Each test suite:
 server/
 ├── logs/                    # Winston log files
 ├── src/
-│   ├── avatars/             # Avatar utility logic
 │   ├── controllers/         # Express route handlers
 │   ├── middlewares/         # Custom middlewares (auth, logging, rate-limit)
 │   ├── models/              # Mongoose models
