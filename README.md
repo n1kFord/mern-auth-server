@@ -11,6 +11,21 @@ A secure, modular, and extensible **Node.js** backend built with **Express**, **
 
 ---
 
+🚀 Looking for a newer implementation?
+
+> Check out jwt-auth: https://github.com/n1kFord/jwt-auth
+
+This is a more modern authentication project featuring:
+
+- Access & Refresh Tokens with rotation
+- CSRF protection (Double Submit Cookie pattern)
+- Redis-backed refresh token storage
+- Improved security architecture
+- Docker support
+- More comprehensive test coverage
+
+---
+
 ## ✨ Overview
 
 This is the **backend API** that supports a full authentication flow for a MERN-based application.
